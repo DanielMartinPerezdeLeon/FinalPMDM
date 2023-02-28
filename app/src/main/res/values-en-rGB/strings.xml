@@ -2,6 +2,10 @@
 <resources>
     <string name="app_name">FinalPMDM</string>
     <string name="text_nombre">Name:</string>
-    <string name="text_edad">Age</string>
+    <string name="text_edad">Age:</string>
     <string name="text_calcular">CALCULATE</string>
+    <string name="text_email">Email:</string>
+    <string name="text_nuevapersona">NEW PERSON</string>
+    <string name="text_guardar">SAVE</string>
+    <string name="text_borrarpersona">DELETE PERSON</string>
 </resources>

@@ -21,18 +21,36 @@ public class Persona {
     private Boolean conexion;
 
     @ColumnInfo(name="Email")
-    private Boolean email;
+    private String email;
 
     @ColumnInfo(name="GitHub")
-    private Boolean github;
+    private String github;
 
+    public Persona(){
 
+    }
 
     public Persona(String nombre, int edad, String lugar, Boolean conexion) {
         this.nombre = nombre;
         this.edad = edad;
         this.lugar = lugar;
         this.conexion = conexion;
+    }
+
+    public Persona(String nombre, int edad, String lugar, Boolean conexion, String email, String github) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.lugar = lugar;
+        this.conexion = conexion;
+        this.email=email;
+        this.github=github;
+    }
+
+    public Persona(String nombre, int edad,String email, String github) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.email=email;
+        this.github=github;
     }
 
     public String getNombre() {
@@ -67,19 +85,22 @@ public class Persona {
         this.conexion = conexion;
     }
 
-    public Boolean getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(Boolean email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public Boolean getGithub() {
+    public String getGithub() {
         return github;
     }
 
-    public void setGithub(Boolean github) {
+    public void setGithub(String github) {
         this.github = github;
     }
+
+
+
 }

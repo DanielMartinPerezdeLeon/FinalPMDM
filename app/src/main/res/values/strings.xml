@@ -5,4 +5,9 @@
     <string name="text_nombre">Nombre:</string>
     <string name="text_edad">Edad:</string>
     <string name="text_calcular">CALCULAR</string>
+    <string name="text_email">Email:</string>
+    <string name="text_github" translatable="false">GitHub:</string>
+    <string name="text_nuevapersona">NUEVA PERSONA</string>
+    <string name="text_guardar">GUARDAR</string>
+    <string name="text_borrarpersona">BORRAR PERSONA</string>
 </resources>
