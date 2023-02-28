@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FinalPMDM</string>
+    <string name="text_nombre">Name:</string>
+    <string name="text_edad">Age</string>
+    <string name="text_calcular">CALCULATE</string>
+</resources>
