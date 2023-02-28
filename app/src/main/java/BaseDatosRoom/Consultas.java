@@ -13,4 +13,5 @@ public interface Consultas {
 
     @Insert
     void insertAll(Persona... persona);
+
 }
