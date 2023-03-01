@@ -11,8 +11,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.Formatter;
 
 import BaseDatosRoom.Persona;
 
@@ -36,7 +39,10 @@ public class Fragmento1 extends Fragment {
     EditText fieldnombre;
     EditText fieldemail;
     EditText fieldgithub;
-    TextView fieldedad;
+    EditText fieldnota1;
+    EditText fieldnota2;
+    EditText fieldnota3;
+    TextView text_notamedia;
     Button botoncalcular;
     Button botonguardar;
 
@@ -77,7 +83,13 @@ public class Fragmento1 extends Fragment {
         try{
             if(!savedInstanceState.isEmpty()){
                 fieldnombre.setText(savedInstanceState.getString("nombre"));
-                fieldedad.setText(Integer.toString(savedInstanceState.getInt("edad")));
+                fieldnota1.setText(Integer.toString(savedInstanceState.getInt("nota1")));
+                fieldnota2.setText(Integer.toString(savedInstanceState.getInt("nota2")));
+                fieldnota3.setText(Integer.toString(savedInstanceState.getInt("nota3")));
+                Formatter fmt = new Formatter();
+                fmt.format("%.2f",savedInstanceState.getFloat("notamedia"));
+                text_notamedia.setText(fmt.toString());
+                fmt.close();
                 fieldemail.setText(savedInstanceState.getString("email"));
                 fieldgithub.setText(savedInstanceState.getString("github"));
 
@@ -103,24 +115,30 @@ public class Fragmento1 extends Fragment {
 
         //Asigno las cosas del fragmento
          fieldnombre = (EditText)  view.findViewById(R.id.campo_nombre);
-         fieldedad = (TextView) view.findViewById(R.id.campo_edad);
-         fieldemail = (EditText) view.findViewById(R.id.campo_email);
+         fieldnota1 = (EditText) view.findViewById(R.id.campo_nota1);
+        fieldnota2 = (EditText) view.findViewById(R.id.campo_nota2);
+        fieldnota3 = (EditText) view.findViewById(R.id.campo_nota3);
+        fieldemail = (EditText) view.findViewById(R.id.campo_email);
+        text_notamedia = (TextView) view.findViewById(R.id.texto_notamedia_poner);
          fieldgithub = (EditText) view.findViewById(R.id.campo_github);
-         botoncalcular = (Button) view.findViewById(R.id.btn_calcular);
          botonguardar= (Button) view.findViewById(R.id.btn_guardar);
 
         botonguardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Persona p= new Persona(fieldnombre.getText().toString(),Integer.parseInt(fieldedad.getText().toString()),
+                Persona p= new Persona(fieldnombre.getText().toString(),Integer.parseInt(fieldnota1.getText().toString()),
+                        Integer.parseInt(fieldnota2.getText().toString()),Integer.parseInt(fieldnota3.getText().toString()),
                         fieldemail.getText().toString(),fieldgithub.getText().toString());
 
                 if(nuevo==true){
 
                     MainActivity.nuevaPersona(p);   //Introduce esa persona
                     MainActivity.instancia.ActualizarListadoPersonas(); //Actualiza el listado
-
+                    Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Persona Guardada", Toast.LENGTH_SHORT);
+                    toast.show();
                 }else{
+                    Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Persona editada", Toast.LENGTH_SHORT);
+                    toast.show();
                     MainActivity.actualizaPersona(p);
                 }
 
